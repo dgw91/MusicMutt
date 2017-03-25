@@ -4,8 +4,5 @@
 {% block title %}MusicMutt - Playlist{% endblock %}
 {% block body %}
 {{ super() }}
-{% if data %}
-    {{ data}} #empty page
-  {% endif %}
-  
+    {{ data|safe }}
 {% endblock %}
