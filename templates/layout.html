@@ -1,0 +1,16 @@
+{# _musicmutt/templates/layout.html_ #}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+    {% block body %}        
+    <img class="logo" src="{{ url_for('static', filename='img/transparentlogoscaled.png') }}">
+    <img class="logo" src="{{ url_for('static', filename='img/transparenttextscaled.png') }}">
+    {% endblock %}
+    </body>
+</html>

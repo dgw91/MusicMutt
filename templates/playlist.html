@@ -1,0 +1,8 @@
+{# _musicmutt/templates/home.html_ #}
+
+{% extends "layout.html"%}
+{% block title %}MusicMutt - Playlist{% endblock %}
+{% block body %}
+{{ super() }}
+ {{retrieveTracks}}
+{% endblock %}
