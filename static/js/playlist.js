@@ -3,6 +3,7 @@
 var iframe = document.getElementsByTagName('iframe');
 var content = document.getElementsByClassName('data');
 
+
 foreach (data in content) {
     data.addEventListener('click', pickSong(event), false);
 }
