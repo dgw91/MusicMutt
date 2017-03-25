@@ -67,6 +67,7 @@ li:hover{
     border-radius: 0px;
     border:none;
     margin: 3%;
+    display: block;
 }
 
 /*************** IDs' ***************/
@@ -91,3 +92,5 @@ div.dat ul li{
     flex: 1 0 100%;
     text-align: left;
 }
+
+/***** Breakpoint *****/
