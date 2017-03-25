@@ -1,25 +1,24 @@
 from flask import Flask
 from flask import render_template
-from flask.json import jsonify
 from flask import request
 from HTMLParser import HTMLParser
-app = Flask(__name__, static_url_path='/static')
 
 import spotipy
-import json
 import random
 from spotipy.oauth2 import SpotifyClientCredentials
 
+app = Flask(__name__, static_url_path='/static')
 def generateTrack(track):
     data = """<div class="data">
                 <img src='{0}'>
                 <ul>
-                    <li>Artist: {1}</li>
-                    <li>Album: {2}</li>
-                    <li>Track: {3}</li>
-                    <li id="uri">{4}</li>
+                    <li><iframe src="https://embed.spotify.com/?uri={1}"frameborder="0" allowtransparency="true"></iframe></li>
+                    <li>Artist: {2}</li>
+                    <li>Album: {3}</li>
+                    <li>Track: {4}</li>
                 </ul>
-              </div>""".format(track['imageurl'], track['artist'], track['album'], track['title'], track['uri'])
+              </div>""".format(track['imageurl'], track['uri'], track['artist'], track['album'], track['title'])
+    print data
     return data
 
 
