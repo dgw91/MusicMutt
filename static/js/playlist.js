@@ -1,5 +1,6 @@
-var iframe = document.getElementsByTagName('iframe');
 
+//Variables
+var iframe = document.getElementsByTagName('iframe');
 var content = document.getElementsByClassName('data');
 
 foreach (data in content) {
