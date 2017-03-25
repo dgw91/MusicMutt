@@ -63,13 +63,22 @@ li:hover{
 }
 
 
-.logo{
+
+
+/*************** IDs' ***************/
+#logo{
     border-radius: 0px;
     border:none;
     margin: 3%;
+    width: 40%;
 }
 
-/*************** IDs' ***************/
+#ogol{
+    border-radius: 0px;
+    border: none;
+    margin: 3%;
+    width: 45%;
+}
 
 #content{
     width: 25%;

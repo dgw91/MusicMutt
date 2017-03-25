@@ -1,4 +1,20 @@
-    .logo{
+    #logo{
+        width: 40%;
+
+    }
+
+    #ogol{
         display: none;
+        float: right;
+        width: 2%;
+    }
+
+
+    li{
+        display:none;
+    }
+
+    li iframe{
+        display: block;
     }
 
