@@ -81,7 +81,7 @@ def retrieveTracks():
 def home():
     return render_template('home.html')
 
-app.jinja_env.globals.update(retrieveTracks=retrieveTracks)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
