@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='/static')
 
 
 def generateTrack(track):
-    data = u"""<div class="data">
+    data = """<div class="data">
                 <img src='{0}'>
                 <ul>
                     <li><iframe src="https://embed.spotify.com/?uri={1}"frameborder="0" allowtransparency="true"></iframe></li>
@@ -16,8 +16,7 @@ def generateTrack(track):
                     <li>Album: {3}</li>
                     <li>Track: {4}</li>
                 </ul>
-              </div>"""
-    data.format(track['imageurl'], track['uri'], track['artist'], track['album'], track['title'])
+              </div>""".format(track['imageurl'], track['uri'], track['artist'], track['album'], track['title'])
     print data
     return data
 
@@ -25,14 +24,20 @@ def generateTrack(track):
 @app.route("/playlist", methods=['POST'])
 def retrieveTracks():
     genre = request.form['genre']
+    # print genre
     numTracks = int(request.form['tracks'])
     numTracks += 1
+    print "Numtracks: {0}".format(numTracks)
     sp = auth.generateSpotify()
     data = """<div id="container">""" + """<div id="content">"""
     for i in range(1, numTracks):
+        print "This is iteration {0}".format(i)
         result = sp.search(q="genre:{0}".format(genre), limit=1, type='track')
         off = result['tracks']['total']
-        rand = random.randrange(1, off-1)
+        print off
+        rand = random.randrange(1, off)
+        rand = rand/2
+        print rand
         result = sp.search(q="genre:{0}".format(genre), limit=1, offset=rand, type='track')
         tracks = []
         tracks.extend(result['tracks']['items'])
@@ -40,15 +45,12 @@ def retrieveTracks():
         for track in tracks:
             images = []
             images.extend(track['album']['images'])
-            album = type<unicode>(track['album']['name'])
-            artist = type<unicode>(track['artists'][0]['name'])
-            title = type<unicode>(track['name'])
-            uri = type<unicode>(track['uri'])
-            imageurl = type<unicode>(images[1]['url'])
-            thing = {'album': album, 'artist': artist, 'title': title, 'imageurl': imageurl, 'uri': uri}
+            thing = {'album': unicode(track['album']['name']), 'artist': unicode(track['artists'][0]['name']), 'title': unicode(track['name']), 'imageurl': unicode(images[1]['url']), 'uri': unicode(track['uri'])}
+            print thing
             data = data + generateTrack(thing)
+            print "Data has been sent for the {0}th iter".format(i)
 
-        data += """</div>\n</div>"""
+        data += """</div></div>"""
     return render_template('playlist.html', data=data)
 
 @app.route('/')
