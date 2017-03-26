@@ -45,7 +45,7 @@ def retrieveTracks():
         for track in tracks:
             images = []
             images.extend(track['album']['images'])
-            thing = {'album': unicode(track['album']['name']), 'artist': unicode(track['artists'][0]['name']), 'title': unicode(track['name']), 'imageurl': unicode(images[1]['url']), 'uri': unicode(track['uri'])}
+            thing = {'album': decode(track['album']['name'],'utf-8'), 'artist': unicode(track['artists'][0]['name']), 'title': unicode(track['name']), 'imageurl': unicode(images[1]['url']), 'uri': unicode(track['uri'])}
             print thing
             data = data + generateTrack(thing)
             print "Data has been sent for the {0}th iter".format(i)
