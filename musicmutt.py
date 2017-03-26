@@ -50,7 +50,7 @@ def retrieveTracks():
             data = data + generateTrack(thing)
             print "Data has been sent for the {0}th iter".format(i)
 
-        data += """</div></div>"""
+    data += """</div></div>"""
     return render_template('playlist.html', data=data)
 
 @app.route('/')
