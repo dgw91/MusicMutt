@@ -59,6 +59,7 @@ li:hover{
 
 legend {
     width: fit-content;
+    text-align: center;
 }
 
 fieldset{
@@ -66,7 +67,22 @@ fieldset{
     color: #1db954;
     font-size: 150%;
     font-family: Arial, Helvetica, sans-serif;
-    width: fit-content;
+    min-width: 120px;
+}
+
+fieldset p {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+fieldset p input,
+fieldset p select,
+fieldset p label {
+    flex: 1 0 100%;
+}
+
+input[type="number"] {
+    width: auto;
 }
 
 /**************** Classes *************/
@@ -115,6 +131,11 @@ fieldset{
 #content{
     width: 25%;
     margin: auto;
+}
+
+span.error {
+    color: lightslategray;
+    font-size: 0.75rem;
 }
 
 /*********** Get Flexible ***********/

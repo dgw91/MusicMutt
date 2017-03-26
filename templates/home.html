@@ -4,7 +4,7 @@
 {% block title %}MusicMutt{% endblock %}
 {% block body %}
 {{ super() }}
-        <form method="POST" action="./playlist">
+        <form method="POST" action="./playlist" novalidate>
             <fieldset>
                 <legend>What do you want to listen to?</legend>
                 <p>
@@ -25,6 +25,7 @@
                 <p>
                     <label for="number">Number of Tracks: </label>
                     <input type="number" name="tracks" id ="number" min="1" max="25">
+                    <span class="error"></span>
                 </p>
                 <p>
                     <input type="submit" value="FETCH" class="button">
@@ -33,5 +34,5 @@
         </form>
 {% endblock %}
 {% block script %} 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}
