@@ -4,14 +4,11 @@
     <head>
         <title>MusicMutt%reg;</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="/static/css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="./static/css/style.css">
         <link rel="stylesheet" media="(max-width: 1700px)" href="./static/css/cssskinny.css" />
-        <link rel="icon" 
-      type="image/png" 
-      href="./static/img/favicon.io">
+        <link rel="stylesheet" media="(max-width: 1000px)" href="./static/css/cssrealskinny.css" />
+        <link rel="stylesheet" media="(max-width: 700px)" href="./static/css/cssrealrealskinny.css" />
     </head>
     <body>
     <div id="container">
@@ -42,7 +39,7 @@
                     <input type="number" name="tracks" id ="number" min="1" max="25">
                 </p>
                 <p>
-                    <input class="button" type="submit" value="FETCH">
+                    <input class="button" type="submit" onclick="validaten()" value="FETCH">
                 </p>
             </fieldset> 
         </form>
