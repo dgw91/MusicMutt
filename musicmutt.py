@@ -1,24 +1,31 @@
+# coding: utf-8
 from flask import Flask
 from flask import render_template
 from flask import request
 import random
 import auth
 
+
 app = Flask(__name__, static_url_path='/static')
 
 
 def generateTrack(track):
     data = """<div class="data">
-                <img src='{0}'>
+                <img src=""" + track['imageurl'] + """>
                 <ul>
-                    <li><iframe src="https://embed.spotify.com/?uri={1}"frameborder="0" allowtransparency="true"></iframe></li>
-                    <li>Artist: {2}</li>
-                    <li>Album: {3}</li>
-                    <li>Track: {4}</li>
+                    <li><iframe src="https://embed.spotify.com/?uri=""" + track['uri'] + """" frameborder="0" allowtransparency="true"></iframe></li>
+                    <li>Artist: """ + track['artist'] + """</li>
+                    <li>Album: """ + track['album'] + """</li>
+                    <li>Track: """ + track['title']+ """</li>
                 </ul>
-              </div>""".format(track['imageurl'], track['uri'], track['artist'], track['album'], track['title'])
-    print data
+              </div>"""
+    data.format(track['imageurl'], track['uri'], track['artist'], track['album'], track['title'])
+    print (data)
     return data
+
+def utfFix(string):
+    # string = string.encode('ascii')
+    return string
 
 
 @app.route("/playlist", methods=['POST'])
@@ -27,17 +34,13 @@ def retrieveTracks():
     # print genre
     numTracks = int(request.form['tracks'])
     numTracks += 1
-    print "Numtracks: {0}".format(numTracks)
     sp = auth.generateSpotify()
     data = ""
     for i in range(1, numTracks):
-        print "This is iteration {0}".format(i)
         result = sp.search(q="genre:{0}".format(genre), limit=1, type='track')
         off = result['tracks']['total']
-        print off
         rand = random.randrange(1, off)
-        rand = rand/2
-        print rand
+        rand = int(rand/2)
         result = sp.search(q="genre:{0}".format(genre), limit=1, offset=rand, type='track')
         tracks = []
         tracks.extend(result['tracks']['items'])
@@ -45,10 +48,12 @@ def retrieveTracks():
         for track in tracks:
             images = []
             images.extend(track['album']['images'])
-            thing = {'album': decode(track['album']['name'],'utf-8'), 'artist': unicode(track['artists'][0]['name']), 'title': unicode(track['name']), 'imageurl': unicode(images[1]['url']), 'uri': unicode(track['uri'])}
-            print thing
+            thing = {'album': utfFix(track['album']['name']), 
+                     'artist': utfFix(track['artists'][0]['name']), 
+                     'title': utfFix(track['name']), 
+                     'imageurl': utfFix(images[1]['url']), 
+                     'uri': utfFix(track['uri'])}
             data = data + generateTrack(thing)
-            print "Data has been sent for the {0}th iter".format(i)
 
     return render_template('playlist.html', data=data)
 
