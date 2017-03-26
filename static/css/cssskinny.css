@@ -33,3 +33,7 @@ div.data ul, div.data img{
     margin-right: auto;
     width: auto;
 }
+
+legend{
+    font-size: 80%;
+}
