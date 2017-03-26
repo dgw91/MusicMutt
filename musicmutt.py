@@ -54,8 +54,8 @@ def retrieveTracks():
                      'imageurl': utfFix(images[1]['url']), 
                      'uri': utfFix(track['uri'])}
             data = data + generateTrack(thing)
-
-    return render_template('playlist.html', data=data)
+    genre = genre.title()
+    return render_template('playlist.html', data=data, genre=genre)
 
 @app.route('/')
 def home():

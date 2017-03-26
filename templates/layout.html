@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/cssrealrealskinny.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/cssrealskinny.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/cssskinny.css') }}">
-        <link rel="favicon" href="{{ url_for('static', filename='img/favicon.io') }}">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
     </head>
     <body>
@@ -19,6 +19,11 @@
     {% block body %}        
     <img id="logo" src="{{ url_for('static', filename='img/transparentlogoscaled.png') }}">
     <img id="ogol" src="{{ url_for('static', filename='img/transparenttextscaled.png') }}">
+    {% endblock %}
+    {% block footer%}
+        <footer>
+            Copyright MusicMutt<sup>&reg;</sup>
+        </footer>
     {% endblock %}
             </div>
         </div>
