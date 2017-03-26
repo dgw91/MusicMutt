@@ -1,20 +1,33 @@
-    #logo{
-        width: 40%;
+#logo{
+    width: 48%;
+    margin-left: 22%;
+}
 
-    }
+.data img{
+    height: 150px;
+    width: 150px;
+    margin-left: 22%;
+}
 
-    #ogol{
-        display: none;
-        float: right;
-        width: 2%;
-    }
+#ogol{
+    display: none;
+}
 
+li{
+    border-top:1px solid #282828;
+    padding:5px;
+    margin:2px;
+    font-size: 18px;
 
-    li{
-        display:none;
-    }
+}
 
-    li iframe{
-        display: block;
-    }
+div.data{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
+div.data ul, div.data img{
+    flex: 1 0 50%;
+    margin: 6px auto 0px auto;
+}
