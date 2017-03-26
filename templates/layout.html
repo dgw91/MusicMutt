@@ -17,8 +17,8 @@
         <div id="container">
             <div id="content">
     {% block body %}        
-    <img id="logo" src="{{ url_for('static', filename='img/transparentlogoscaled.png') }}">
-    <img id="ogol" src="{{ url_for('static', filename='img/transparenttextscaled.png') }}">
+    <a href="./"><img id="logo" src="{{ url_for('static', filename='img/transparentlogoscaled.png') }}"></a>
+    <a href="./"><img id="ogol" src="{{ url_for('static', filename='img/transparenttextscaled.png') }}"></a>
     {% endblock %}
     {% block footer%}
         <footer>
