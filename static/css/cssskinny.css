@@ -29,5 +29,7 @@ div.data{
 
 div.data ul, div.data img{
     flex: 1 0 50%;
-    margin: 6px auto 0px auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }
