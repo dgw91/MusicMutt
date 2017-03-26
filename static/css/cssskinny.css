@@ -3,6 +3,10 @@
     margin-left: 22%;
 }
 
+#stackedlogo{
+    display: block;
+}
+
 .data img{
     height: 150px;
     width: 150px;
