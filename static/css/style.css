@@ -39,6 +39,10 @@ h1{
 footer{
     text-align: right;
     overflow: hidden;
+    display: flex;
+    text-align: right;
+    flex: 1 0 100%;
+    color: #303030;
 }
 
 li{
@@ -128,5 +132,6 @@ div.dat ul li{
     flex: 1 0 100%;
     text-align: left;
 }
+
 
 /************* Breakpoint **********/
