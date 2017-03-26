@@ -29,7 +29,7 @@ def retrieveTracks():
     numTracks += 1
     print "Numtracks: {0}".format(numTracks)
     sp = auth.generateSpotify()
-    data = """<div id="container">""" + """<div id="content">"""
+    data = ""
     for i in range(1, numTracks):
         print "This is iteration {0}".format(i)
         result = sp.search(q="genre:{0}".format(genre), limit=1, type='track')
@@ -50,7 +50,6 @@ def retrieveTracks():
             data = data + generateTrack(thing)
             print "Data has been sent for the {0}th iter".format(i)
 
-    data += """</div></div>"""
     return render_template('playlist.html', data=data)
 
 @app.route('/')
