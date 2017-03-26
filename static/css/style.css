@@ -53,11 +53,16 @@ li:hover{
     background-color: #282828;
 }
 
+legend {
+    width: fit-content;
+}
+
 fieldset{
     border-color: #fff;
     color: #1db954;
     font-size: 150%;
     font-family: Arial, Helvetica, sans-serif;
+    width: fit-content;
 }
 
 /**************** Classes *************/
