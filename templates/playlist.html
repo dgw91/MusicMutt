@@ -1,7 +1,7 @@
 {# _musicmutt/templates/home.html_ #}
 
 {% extends "layout.html"%}
-{% block title %}MusicMutt - Playlist{% endblock %}
+{% block title %}MusicMutt - {{genre}} Playlist{% endblock %}
 {% block body %}
 {{ super() }}
     {{ data|safe }}
